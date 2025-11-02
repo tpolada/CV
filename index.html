@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My CV</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #312eff 0%, #7f17f7 50%, #ce00ed 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #312eff, #7f17f7);
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #312eff;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #312eff 0%, #ce00ed 100%);
+        }
+
+        .entry {
+            margin-bottom: 25px;
+        }
+
+        .entry:last-child {
+            margin-bottom: 0;
+        }
+
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+        }
+
+        .entry-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .entry-date {
+            color: #7f17f7;
+            font-weight: 500;
+            font-size: 0.95em;
+        }
+
+        .entry-subtitle {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 8px;
+        }
+
+        .entry-description {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .entry-description ul {
+            margin-left: 20px;
+            margin-top: 8px;
+        }
+
+        .entry-description li {
+            margin-bottom: 5px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .skill-category {
+            background: linear-gradient(135deg, rgba(49, 46, 255, 0.05), rgba(127, 23, 247, 0.05));
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #7f17f7;
+        }
+
+        .skill-category h4 {
+            color: #312eff;
+            margin-bottom: 8px;
+            font-size: 1em;
+        }
+
+        .skill-category ul {
+            list-style: none;
+        }
+
+        .skill-category li {
+            color: #555;
+            padding: 3px 0;
+            font-size: 0.95em;
+        }
+
+        .skill-category li::before {
+            content: "▪";
+            color: #ce00ed;
+            margin-right: 8px;
+        }
+
+        .languages-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .language-item {
+            background: linear-gradient(135deg, #312eff, #7f17f7);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-weight: 500;
+        }
+
+        .certification-item {
+            background: rgba(127, 23, 247, 0.05);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            border-left: 3px solid #ce00ed;
+        }
+
+        .certification-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .certification-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .certification-details {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .cert-link {
+            color: #7f17f7;
+            text-decoration: none;
+            font-size: 0.9em;
+            margin-left: 10px;
+            transition: color 0.3s;
+        }
+
+        .cert-link:hover {
+            color: #ce00ed;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 30px 20px;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .entry-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .entry-date {
+                margin-top: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Tinatin Poladashvili</h1>
+            <p>BI Developer</p>
+            <p style="font-size: 0.9em; margin-top: 10px;">tiko.poladashvili@gmail.com | +995 597 34 00 08 | Tbilisi, Georgia</p>
+            <p style="font-size: 0.9em; margin-top: 5px;">Date of Birth: 03/05/1996 | <a href="https://www.linkedin.com/in/tikopoladashvili/" style="color: white; text-decoration: underline;" target="_blank">LinkedIn Profile</a></p>
+        </div>
+
+        <div class="content">
+            <!-- WORK EXPERIENCE -->
+            <div class="section">
+                <h2 class="section-title">WORK EXPERIENCE</h2>
+                
+                <div class="entry">
+                    <div class="entry-header">
+                        <div class="entry-title">Database Lecturer</div>
+                        <div class="entry-date">Sep 2025 - Present</div>
+                    </div>
+                    <div class="entry-subtitle">Business and Technology University, Tbilisi, Georgia</div>
+                </div>
+
+                <div class="entry">
+                    <div class="entry-header">
+                        <div class="entry-title">BI Development Course Mentor</div>
+                        <div class="entry-date">Dec 2022 - Present</div>
+                    </div>
+                    <div class="entry-subtitle">TICODE <a href="https://ticode.ge/bidevelopmentcourse/" target="_blank" style="color: #7f17f7; text-decoration: none;">🔗 Course Details</a></div>
+                </div>
+
+                <div class="entry">
+                    <div class="entry-header">
+                        <div class="entry-title">BI Developer</div>
+                        <div class="entry-date">Sep 2023 - Jan 2025</div>
+                    </div>
+                    <div class="entry-subtitle">Girteka, Vilnius, Lithuania (Remote)</div>
+                </div>
+
+                <div class="entry">
+                    <div class="entry-header">
+                        <div class="entry-title">Advanced BI Developer</div>
+                        <div class="entry-date">Sep 2022 - Apr 2023</div>
+                    </div>
+                    <div class="entry-subtitle">Bank of Georgia, Tbilisi, Georgia</div>
+                </div>
+
+                <div class="entry">
+                    <div class="entry-header">
+                        <div class="entry-title">BI Developer</div>
+                        <div class="entry-date">Apr 2022 - Sep 2022</div>
+                    </div>
+                    <div class="entry-subtitle">BI Rabbit, Warsaw, Poland (On-site)</div>
+                </div>
+
+                <div class="entry">
+                    <div class="entry-header">
+                        <div class="entry-title">BI Developer</div>
+                        <div class="entry-date">Aug 2021 - Apr 2022</div>
+                    </div>
+                    <div class="entry-subtitle">UGT, Tbilisi, Georgia</div>
+                </div>
+            </div>
+
+            <!-- EDUCATION -->
+            <div class="section">
+                <h2 class="section-title">EDUCATION</h2>
+                
+                <div class="entry">
+                    <div class="entry-header">
+                        <div class="entry-title">Master of Informatics</div>
+                        <div class="entry-date">2020 - 2022</div>
+                    </div>
+                    <div class="entry-subtitle">Faculty of Informatics and Control Systems, Georgian Technical University</div>
+                </div>
+
+                <div class="entry">
+                    <div class="entry-header">
+                        <div class="entry-title">Physics, Mathematics and Informatics</div>
+                        <div class="entry-date">2018 - 2019</div>
+                    </div>
+                    <div class="entry-subtitle">Cracow University of Technology, Poland</div>
+                </div>
+
+                <div class="entry">
+                    <div class="entry-header">
+                        <div class="entry-title">Bachelor of Informatics</div>
+                        <div class="entry-date">2014 - 2018</div>
+                    </div>
+                    <div class="entry-subtitle">Gori State Teaching University, Georgia</div>
+                </div>
+            </div>
+
+            <!-- PROFESSIONAL CERTIFICATIONS -->
+            <div class="section">
+                <h2 class="section-title">PROFESSIONAL CERTIFICATIONS</h2>
+                
+                <div class="certification-item">
+                    <div class="certification-title">
+                        Microsoft Power BI Data Analyst (PL-300)
+                        <a href="https://learn.microsoft.com/en-us/users/tinatinpoladashvili-2939/transcript/d5l1nsgyl10z8z1" target="_blank" class="cert-link">🔗 Show credential</a>
+                    </div>
+                    <div class="certification-details">Microsoft</div>
+                </div>
+
+                <div class="certification-item">
+                    <div class="certification-title">
+                        MicroStrategy Analyst (ANL)
+                        <a href="https://www.credential.net/0e1159ea-6082-4cd9-8327-30c860156d5c#acc.PBxJvS21" target="_blank" class="cert-link">🔗 Show credential</a>
+                    </div>
+                    <div class="certification-details">MicroStrategy</div>
+                </div>
+
+                <div class="certification-item">
+                    <div class="certification-title">
+                        MicroStrategy Architect (MCA)
+                        <a href="https://www.credential.net/5a273e95-da81-4dda-8015-ce900a365105#acc.gWPt0j4l" target="_blank" class="cert-link">🔗 Show credential</a>
+                    </div>
+                    <div class="certification-details">MicroStrategy</div>
+                </div>
+
+                <div class="certification-item">
+                    <div class="certification-title">
+                        JavaScript Developer
+                        <a href="https://certification.w3schools.com/w3certified.asp?id=12860097" target="_blank" class="cert-link">🔗 Show credential</a>
+                    </div>
+                    <div class="certification-details">W3Schools</div>
+                </div>
+            </div>
+
+            <!-- COURSES -->
+            <div class="section">
+                <h2 class="section-title">COURSES</h2>
+                
+                <div class="entry">
+                    <div class="entry-title">Agile Trainings</div>
+                    <div class="entry-subtitle">Girteka</div>
+                </div>
+
+                <div class="entry">
+                    <div class="entry-title">Microsoft Data Analyst</div>
+                    <div class="entry-subtitle">New Horizons Computer Learning Centers</div>
+                </div>
+
+                <div class="entry">
+                    <div class="entry-title">Financial Reporting in Power BI</div>
+                    <div class="entry-subtitle">Enterprise DNA</div>
+                </div>
+
+                <div class="entry">
+                    <div class="entry-title">Coding School (HTML/CSS/JavaScript/Angular)</div>
+                    <div class="entry-subtitle">Business and Technology University</div>
+                </div>
+
+                <div class="entry">
+                    <div class="entry-title">Programming in HTML5/JavaScript/CSS</div>
+                    <div class="entry-subtitle">New Horizons Computer Learning Centers</div>
+                </div>
+            </div>
+
+            <!-- ADDITIONAL CERTIFICATIONS -->
+            <div class="section">
+                <h2 class="section-title">ADDITIONAL CERTIFICATIONS</h2>
+                
+                <div class="certification-item">
+                    <div class="certification-title">Young Scientist Diploma for Scientific Research</div>
+                    <div class="certification-details">Warsaw University</div>
+                </div>
+
+                <div class="certification-item">
+                    <div class="certification-title">Certificate in Polish Language (A2)</div>
+                    <div class="certification-details">Warsaw University</div>
+                </div>
+            </div>
+
+            <!-- LANGUAGES -->
+            <div class="section">
+                <h2 class="section-title">LANGUAGES</h2>
+                <div class="languages-list">
+                    <div class="language-item">Georgian - Fluent</div>
+                    <div class="language-item">English - C1</div>
+                    <div class="language-item">Polish - A2</div>
+                </div>
+            </div>
+
+            <!-- SKILLS -->
+            <div class="section">
+                <h2 class="section-title">SKILLS</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>Microsoft Power BI</h4>
+                        <ul>
+                            <li>Power Query</li>
+                            <li>DAX</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>SAP BI</h4>
+                        <ul>
+                            <li>Data Intelligence (DI)</li>
+                            <li>Data Lake (DL)</li>
+                            <li>Datasphere (DSP)</li>
+                            <li>Analytics Cloud (SAC)</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>MicroStrategy</h4>
+                        <ul>
+                            <li>MicroStrategy Web</li>
+                            <li>MicroStrategy Library</li>
+                            <li>MicroStrategy Developer</li>
+                            <li>MicroStrategy Architect</li>
+                            <li>MicroStrategy Workstation</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>Databases</h4>
+                        <ul>
+                            <li>SQL Server (SSMS)</li>
+                            <li>Oracle</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
